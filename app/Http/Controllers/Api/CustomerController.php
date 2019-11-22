@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $customer = Customer::all();
 
+        return response()->json($customer);
     }
 
     /**
