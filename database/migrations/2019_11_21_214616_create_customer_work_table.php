@@ -14,9 +14,9 @@ class CreateCustomerWorkTable extends Migration
     public function up()
     {
         Schema::create('customer_work', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('customer_id');
-            $table->unsignedInteger('work_id');
+            $table->bigIncrements('id');
+            $table->integer('customer_id')->unsigned();
+            $table->integer('work_id')->unsigned();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreign('work_id')->references('id')->on('works')->onDelete('cascade');

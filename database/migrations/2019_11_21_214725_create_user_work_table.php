@@ -14,8 +14,8 @@ class CreateUserWorkTable extends Migration
     public function up()
     {
         Schema::create('user_work', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
             $table->unsignedInteger('work_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
