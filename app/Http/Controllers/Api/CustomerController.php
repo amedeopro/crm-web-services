@@ -25,9 +25,22 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $validatedData = $request->validate([
+
+            'company'=>'required',
+            'ref_name'=>'required',
+            'phone'=>'required',
+            'mail'=>'required',
+
+        ]);
+
+        $newCustomer = new Customer;
+        $newCustomer->fill($validatedData);
+        $newCustomer->save();
     }
 
     /**
