@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Work;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -13,7 +15,9 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        $work = Work::all();
+
+        return response()->json($work);
     }
 
     /**
