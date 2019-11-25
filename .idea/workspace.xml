@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="62f96327-2f70-4e90-a448-7d74ba3110b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,12 +111,6 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-17" />
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="983" />
-  </component>
   <component name="ProjectId" id="1TwUlCLtsT2cApn2CingGbUeHwK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -165,6 +160,8 @@
       <workItem from="1574497312351" duration="196000" />
       <workItem from="1574497524708" duration="98000" />
       <workItem from="1574497639741" duration="2446000" />
+      <workItem from="1574712584892" duration="617000" />
+      <workItem from="1574715155096" duration="1644000" />
     </task>
     <task id="LOCAL-00001" summary="migrations effettuate + controller e model">
       <created>1574375751813</created>
@@ -173,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574375751813</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="migrations effettuate + controller e model">
+      <created>1574587067268</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574587067268</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
