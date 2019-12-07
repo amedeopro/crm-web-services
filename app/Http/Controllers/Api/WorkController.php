@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\CustomerWork;
 use App\Http\Controllers\Controller;
 use App\Work;
 use Illuminate\Http\Request;
@@ -15,7 +16,10 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $work = Work::all();
+        $work = CustomerWork::select('customers.company','work_type','dead_line','finished','information')
+            ->join('customers', 'customer_works.customer_id','=','customers.id')
+            ->join('works', 'customer_works.work_id','=','works.id')
+            ->get();
 
         return response()->json($work);
     }
