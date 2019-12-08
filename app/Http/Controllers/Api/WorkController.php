@@ -6,6 +6,7 @@ use App\CustomerWork;
 use App\Http\Controllers\Controller;
 use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkController extends Controller
 {
@@ -14,6 +15,17 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function contaLavori(){
+        $lavorinonterminati = DB::table('works')->where('finished',0)->count();
+        $lavoriterminati = DB::table('works')->where('finished',1)->count();
+
+        return response()->json(compact('lavorinonterminati','lavoriterminati'));
+    }
+
+
+
     public function index()
     {
         $work = CustomerWork::select('customers.company','work_type','dead_line','finished','information')
