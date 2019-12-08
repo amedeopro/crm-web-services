@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/customers','Api\CustomerController@index');
+Route::get('/customers/contaclienti','Api\CustomerController@contaClienti');
 Route::get('/works','Api\WorkController@index');
 Route::get('/works/contalavori','Api\WorkController@contaLavori');
 

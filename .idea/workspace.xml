@@ -4,9 +4,6 @@
     <list default="true" id="62f96327-2f70-4e90-a448-7d74ba3110b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/WorkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/WorkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CorsMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CorsMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_21_214616_create_customer_work_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_21_214616_create_customer_works_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,7 +164,7 @@
       <workItem from="1574712584892" duration="617000" />
       <workItem from="1574715155096" duration="1644000" />
       <workItem from="1575736891562" duration="1020000" />
-      <workItem from="1575842819562" duration="1901000" />
+      <workItem from="1575842819562" duration="3235000" />
     </task>
     <task id="LOCAL-00001" summary="migrations effettuate + controller e model">
       <created>1574375751813</created>
@@ -190,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575736837176</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="nuovo servizio conteggio lavori">
+      <created>1575844753712</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575844753712</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +230,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="migrations effettuate + controller e model" />
     <MESSAGE value="merge-conflict" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge-conflict" />
+    <MESSAGE value="nuovo servizio conteggio lavori" />
+    <option name="LAST_COMMIT_MESSAGE" value="nuovo servizio conteggio lavori" />
   </component>
 </project>
