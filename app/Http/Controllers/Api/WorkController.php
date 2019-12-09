@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Customer;
 use App\CustomerWork;
 use App\Http\Controllers\Controller;
 use App\Work;
@@ -41,9 +42,22 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $validatedData = $request->validate([
+
+            'work_type'=>'required',
+            'dead_line'=>'required',
+            'finished'=>'required',
+            'information'=>'required',
+
+        ]);
+
+        $newWork = new Work;
+        $newWork->fill($validatedData);
+        $newWork->save();
     }
 
     /**

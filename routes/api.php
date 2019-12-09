@@ -24,3 +24,4 @@ Route::get('/works/contalavori','Api\WorkController@contaLavori');
 
 
 Route::post('/customers','Api\CustomerController@create');
+Route::post('/works','Api\WorkController@create');
