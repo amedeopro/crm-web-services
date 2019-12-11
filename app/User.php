@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function customers(){
+        return $this->belongsToMany(Customer::class)->withTimestamps();
+    }
+
+    public function works(){
+        return $this->belongsToMany(Work::class)->withTimestamps();
+    }
 }

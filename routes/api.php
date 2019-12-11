@@ -21,6 +21,7 @@ Route::get('/customers','Api\CustomerController@index');
 Route::get('/customers/contaclienti','Api\CustomerController@contaClienti');
 Route::get('/works','Api\WorkController@index');
 Route::get('/works/contalavori','Api\WorkController@contaLavori');
+Route::get('/users','Api\UserController@index');
 
 
 Route::post('/customers','Api\CustomerController@create');

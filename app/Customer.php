@@ -11,4 +11,8 @@ class Customer extends Model
     public function works(){
         return $this->belongsToMany(Work::class)->withTimestamps();
     }
+
+    public function users(){
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }
