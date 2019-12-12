@@ -62,7 +62,7 @@ class WorkController extends Controller
         $newWork->fill($validatedData);
         $newWork->save();
 	
-	CustomerWork::create(['customer_id' => 'customer_id','work_id' => 'work_id','user_id' => 'user_id']);
+	CustomerWork::create(['customer_id' => '','work_id' => '','user_id' => '']);
 	//$newWork->customers()->sync(['user_id','customer_id']);
 
        //  $newWork->users()->attach('user_id');
