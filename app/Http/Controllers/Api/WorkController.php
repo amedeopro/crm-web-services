@@ -95,7 +95,22 @@ class WorkController extends Controller
      */
     public function edit($id)
     {
-        //
+//        $work = Work::find($id);
+//        $customerWork = CustomerWork::where('work_id',$id)->get();
+
+        $work = CustomerWork::select('customers.company','work_type','dead_line','finished','information','name','users.name')
+            ->join('customers', 'customer_works.customer_id','=','customers.id')
+            ->join('works', 'customer_works.work_id','=','works.id')
+            ->join('users', 'customer_works.user_id','=','users.id')
+            ->where('works.id', $id)
+            ->get();
+
+
+        if (empty($work)) {
+            return abort(404);
+        }
+
+        return response()->json($work);
     }
 
     /**

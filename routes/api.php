@@ -17,12 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// visualizzazione
+
 Route::get('/customers','Api\CustomerController@index');
 Route::get('/customers/contaclienti','Api\CustomerController@contaClienti');
 Route::get('/works','Api\WorkController@index');
 Route::get('/works/contalavori','Api\WorkController@contaLavori');
 Route::get('/users','Api\UserController@index');
 
+// modifica
+Route::get('/works/{id}','Api\WorkController@edit');
 
+// inserimento
 Route::post('/customers','Api\CustomerController@create');
 Route::post('/works','Api\WorkController@create');
