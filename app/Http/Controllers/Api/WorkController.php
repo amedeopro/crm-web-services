@@ -48,26 +48,21 @@ class WorkController extends Controller
     {
         $data = $request->all();
 
-
         $validatedData = $request->validate([
 
             'work_type'=>'required',
             'dead_line'=>'required',
             'finished'=>'required',
             'information'=>'required',
+            'user_id' => 'required',
+            'customer_id' => 'required',
 
         ]);
 
-        $newWork = new Work;
-        $newWork->fill($validatedData);
-        $newWork->save();
-	
-//	CustomerWork::create(['customer_id' => '','work_id' => '','user_id' => '']);
-$newWork->customers()->attach('customer_id',['user_id'=>'user_id_value']);
-	//$newWork->customers()->sync(['user_id','customer_id']);
+        $nuovoLavoro = Work::create($validatedData);
+        CustomerWork::create(['customer_id' => $validatedData['customer_id'],'work_id' => $nuovoLavoro -> id ,'user_id' => $validatedData['user_id']]);
 
-       //  $newWork->users()->attach('user_id');
-       //  $newWork->customers()->attach('customer_id');
+
     }
 
     /**
