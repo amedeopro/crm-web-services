@@ -30,7 +30,7 @@ class WorkController extends Controller
 
     public function index()
     {
-        $work = CustomerWork::select('customers.company','work_type','dead_line','finished','information','name')
+        $work = CustomerWork::select('works.id','customers.company','work_type','dead_line','finished','information','name')
             ->join('customers', 'customer_works.customer_id','=','customers.id')
             ->join('works', 'customer_works.work_id','=','works.id')
             ->join('users', 'customer_works.user_id','=','users.id')
@@ -98,7 +98,7 @@ class WorkController extends Controller
 //        $work = Work::find($id);
 //        $customerWork = CustomerWork::where('work_id',$id)->get();
 
-        $work = CustomerWork::select('customers.company','work_type','dead_line','finished','information','name','users.name')
+        $work = CustomerWork::select('works.id','customers.company','work_type','dead_line','finished','information','name','users.name')
             ->join('customers', 'customer_works.customer_id','=','customers.id')
             ->join('works', 'customer_works.work_id','=','works.id')
             ->join('users', 'customer_works.user_id','=','users.id')
@@ -133,6 +133,7 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $work = Work::find($id);
+        $work->delete();
     }
 }

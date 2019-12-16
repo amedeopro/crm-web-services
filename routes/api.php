@@ -31,3 +31,6 @@ Route::get('/works/{id}','Api\WorkController@edit');
 // inserimento
 Route::post('/customers','Api\CustomerController@create');
 Route::post('/works','Api\WorkController@create');
+
+// delete
+Route::delete('works/{id}', 'Api\WorkController@destroy');
