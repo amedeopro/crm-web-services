@@ -122,7 +122,16 @@ class WorkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $work = Work::find($id);
+        if (empty($work)) {
+            return response()->json([
+                'error' => 'id inesistente'
+            ]);
+        }
+        $work->update($data);
+        $work->customers()->sync($data['user_id']);
+        return response()->json($work);
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerWork extends Model
 {
     protected $fillable = ['customer_id','user_id', 'work_id'];
+    protected $table = 'customer_works';
 
     public function works(){
         return $this->belongsToMany(Work::class)->withTimestamps();

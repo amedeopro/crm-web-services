@@ -27,6 +27,7 @@ Route::get('/users','Api\UserController@index');
 
 // modifica
 Route::get('/works/{id}','Api\WorkController@edit');
+Route::patch('/works/{id}','Api\WorkController@update');
 
 // inserimento
 Route::post('/customers','Api\CustomerController@create');
