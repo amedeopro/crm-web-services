@@ -8,7 +8,8 @@ class Work extends Model
 {
 
     protected $fillable = ['work_type','dead_line','finished','information'];
-
+    protected $table = 'works';
+  
     public function customers(){
         return $this->belongsToMany(Customer::class)->withTimestamps();
     }

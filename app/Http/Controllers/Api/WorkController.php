@@ -130,7 +130,8 @@ class WorkController extends Controller
             ]);
         }
         $work->update($data);
-        $work->customers()->sync($data['user_id']);
+        DB::table('customer_works')->update(['user_id'=>$data['user_id']]);
+      
         return response()->json($work);
     }
 
