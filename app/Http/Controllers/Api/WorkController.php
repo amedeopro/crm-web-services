@@ -130,8 +130,12 @@ class WorkController extends Controller
             ]);
         }
         $work->update($data);
-        DB::table('customer_works')->update(['user_id'=>$data['user_id']]);
       
+         $user_id = CustomerWork::where('work_id',$id)->first();     
+         $user_id->user_id = $data['user_id'];
+         $user_id->save();
+      
+     
         return response()->json($work);
     }
 
