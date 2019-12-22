@@ -81,7 +81,12 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::find($id);
+        if (empty($customer)) {
+            return abort(404);
+        }
+
+        return response()->json($customer);
     }
 
     /**
