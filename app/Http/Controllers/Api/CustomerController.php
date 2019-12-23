@@ -98,7 +98,17 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $customer = Customer::find($id);
+        if (empty($customer)) {
+            return response()->json([
+                'error' => 'id inesistente'
+            ]);
+        }
+        $customer->update($data);
+      
+        return response()->json($customer);
+      
     }
 
     /**
@@ -109,6 +119,7 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
     }
 }
