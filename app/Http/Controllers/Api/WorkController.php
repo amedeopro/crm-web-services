@@ -10,6 +10,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Notifications\WorkAdded;
+// use Nexmo\Laravel\Facade\Nexmo;
+
 class WorkController extends Controller
 {
     /**
@@ -35,7 +38,7 @@ class WorkController extends Controller
             ->join('works', 'customer_works.work_id','=','works.id')
             ->join('users', 'customer_works.user_id','=','users.id')
             ->get();
-
+      
         return response()->json($work);
     }
 
@@ -44,6 +47,7 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
     public function create(Request $request)
     {
         $data = $request->all();
@@ -61,6 +65,15 @@ class WorkController extends Controller
 
         $nuovoLavoro = Work::create($validatedData);
         CustomerWork::create(['customer_id' => $validatedData['customer_id'],'work_id' => $nuovoLavoro -> id ,'user_id' => $validatedData['user_id']]);
+        $nuovoLavoro->notify(new WorkAdded);
+        // $data->notify(new WorkAdded);
+         
+      //questo è un servizio a pagamento per inviare sms di notifica all'inserimento di ogni nuovo lavoro
+        //Nexmo::message()->send([
+          // 'to'   => '393939471610',
+           // 'from' => 'CRM-WAP',
+           // 'text' => 'Nuovo lavoro inserito'
+        // ]);
 
 
     }
