@@ -13,15 +13,17 @@ use NotificationChannels\Telegram\TelegramMessage;
 class WorkAdded extends Notification
 {
     use Queueable;
+  
+    public $nomeCLiente;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($cliente)
     {
-        //
+        $this->nomeCliente = $cliente;
     }
 
     /**
@@ -49,7 +51,7 @@ class WorkAdded extends Notification
             // Optional recipient user id.
             ->to('234321055')
             // Markdown supported.
-            ->content("E' stato aggiunto un lavoro su *CRM - WEB AGENCY PRO*");
+            ->content("E' stato aggiunto un lavoro su *CRM - WEB AGENCY PRO* per il cliente"." ".$this->nomeCliente);
             // (Optional) Inline Buttons
 //             ->button('View Invoice', $url)
 //             ->button('Download Invoice', $url);

@@ -50,8 +50,7 @@ class WorkController extends Controller
   
     public function create(Request $request)
     {
-        $data = $request->all();
-
+        $data = $request->all(); 
         $validatedData = $request->validate([
 
             'work_type'=>'required',
@@ -63,9 +62,22 @@ class WorkController extends Controller
 
         ]);
 
-        $nuovoLavoro = Work::create($validatedData);
+      
+      $nuovoLavoro = Work::create($validatedData);
         CustomerWork::create(['customer_id' => $validatedData['customer_id'],'work_id' => $nuovoLavoro -> id ,'user_id' => $validatedData['user_id']]);
-        $nuovoLavoro->notify(new WorkAdded);
+      
+      $nameCostumer = CustomerWork::select('customers.company')
+        ->join('customers','customer_id','=','customers.id')
+        ->where('customers.id',$validatedData['customer_id'])
+        ->first();
+      
+      $nome = json_decode($nameCostumer, true);
+      $nomeString = implode( $nome );
+
+      $nuovoLavoro->notify(new WorkAdded($nomeString));
+      
+        //$nuovoLavoro->notify(new WorkAdded($validatedData['customer_id']));
+
         // $data->notify(new WorkAdded);
          
       //questo è un servizio a pagamento per inviare sms di notifica all'inserimento di ogni nuovo lavoro
@@ -74,8 +86,6 @@ class WorkController extends Controller
            // 'from' => 'CRM-WAP',
            // 'text' => 'Nuovo lavoro inserito'
         // ]);
-
-
     }
 
     /**
