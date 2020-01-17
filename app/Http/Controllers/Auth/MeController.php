@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class MeController extends Controller
 {
@@ -15,11 +16,13 @@ class MeController extends Controller
 
     public function  __invoke(Request $request)
     {
-       $user = $request->user();
-
-       return response()->json([
+        $user = $request->user();
+        $immagine = Auth::user()->getFirstMediaUrl('avatars', 'thumb');
+        
+        return response()->json([
            'email' => $user->email,
-           'name' => $user->name
+           'name' => $user->name,
+            'media' => $immagine
        ]);
     }
 }

@@ -31,6 +31,7 @@ Route::get('/customers/contaclienti','Api\CustomerController@contaClienti');
 Route::get('/works','Api\WorkController@index');
 Route::get('/works/contalavori','Api\WorkController@contaLavori');
 Route::get('/users','Api\UserController@index');
+Route::get('/customerpassword/{id}','Api\CustomerPasswordController@index');
 
 // modifica
 Route::get('/works/{id}','Api\WorkController@edit');

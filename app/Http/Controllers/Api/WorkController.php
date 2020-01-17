@@ -74,7 +74,7 @@ class WorkController extends Controller
       $nome = json_decode($nameCostumer, true);
       $nomeString = implode( $nome );
 
-      $nuovoLavoro->notify(new WorkAdded($nomeString));
+      $nuovoLavoro->notify(new WorkAdded($nomeString, $validatedData['work_type']));
       
         //$nuovoLavoro->notify(new WorkAdded($validatedData['customer_id']));
 

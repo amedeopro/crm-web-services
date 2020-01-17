@@ -15,15 +15,17 @@ class WorkAdded extends Notification
     use Queueable;
   
     public $nomeCLiente;
+    public $tipoLavoro;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($cliente)
+    public function __construct($cliente, $lavoro)
     {
         $this->nomeCliente = $cliente;
+        $this->tipoLavoro = $lavoro;
     }
 
     /**
@@ -51,7 +53,7 @@ class WorkAdded extends Notification
             // Optional recipient user id.
             ->to('234321055')
             // Markdown supported.
-            ->content("E' stato aggiunto un lavoro su *CRM - WEB AGENCY PRO* per il cliente"." ".$this->nomeCliente);
+            ->content("E' stato aggiunto un lavoro su *CRM - WEB AGENCY PRO* per il cliente"." *".$this->nomeCliente."* "."per: ".$this->tipoLavoro);
             // (Optional) Inline Buttons
 //             ->button('View Invoice', $url)
 //             ->button('Download Invoice', $url);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Customer;
+use App\CustomersPassword;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,8 +25,15 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-
+      
+//         $customerpassword = CustomerPassword::select('customers.id','customerspassword.*')
+//         ->join('customers','customer_id','=','customers.id')
+//         ->get();
+      
+      
         return response()->json($customer);
+        //return response()->json(compact('customer','customerpassword');
+
     }
 
     /**

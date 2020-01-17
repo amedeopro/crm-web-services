@@ -15,4 +15,9 @@ class Customer extends Model
     public function users(){
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+  
+      public function customersPassword()
+    {
+        return $this->hasMany(CustomersPassword::class, 'customer_id');
+    }
 }
